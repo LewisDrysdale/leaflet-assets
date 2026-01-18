@@ -37,7 +37,9 @@ assets:
   
   sentinal-2-28thDec2025: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/sentinal2_ryderbay.png", extents: [-67.62, -68.45, -67.50, -68.03] }
   ryder_bay_bas_field_map_boating_limts: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/ryder_bay_bas_field_map_boating_limts.png", extents: [-67.67, -68.45, -67.48, -67.93] }
- 
+  ryder_bay_all: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/ryder_bay_all.png", extents: [-67.78, -68.74, -67.45, -67.55] }
+  ryder_bay_bathy_zoom: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/ryder_bay_bathy_zoom.png", extents: [-67.60, -68.35, -67.54, -68.11] }
+
   
   
   POLOMINTS_BAS_MOORINGS: {
