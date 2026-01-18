@@ -1,0 +1,74 @@
+---
+# all mission fields optional
+# values are inherited from defaults mission
+# mission fields: users: [user1,user2], pilotusers: [...], 
+#                 groups: [group1,group2], pilotgroups: [...],
+#                 started: yyyy-mm-dd, ended: yyyy-mm-dd, planned: yyyy-mm-dd,
+#                 orgname: string, orglink: URL, contact: string, email: string",
+#                 project: string, link: URL, comment: string, reason: string,
+#
+# organization details optional
+# organization fields: orglink: URL, orgname: string, contact: string, email: string,
+#                      text: markdown
+#
+organization:
+ orglink: http://sams.ac.uk
+ orgname: Scottish Association for Marine Science
+ contact: Lewis Drysdale
+ email: lewis.drysdal@sams.ac.uk
+ text: Scottish Marine Robotics Facility (SMRF)
+
+colors:
+  sams_color: &sams_color "#9332a8"
+  bas_color: &bas_color "#cc2c1b"
+
+# image_name: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/", extents: [lat, lon, lat, lon] }
+assets:
+  RATS mooring: { type: fixed, lat: -67.58089, lon: -68.15535, marker: star, color: "#1f25db" }
+  M3: { type: fixed, lat: -67.59189, lon: -68.08293, marker: square, color: *sams_color }
+  M2: { type: fixed, lat: -67.57383, lon: -68.21384, marker: square, color: *sams_color }
+  M1: { type: fixed, lat: -67.53306, lon: -68.24974, marker: square, color: *sams_color }
+  Middle0_ADCP: { type: fixed, lat: -67.53746, lon: -68.26116, marker: circle, color: *bas_color }
+  Middle1_float: { type: fixed, lat: -67.53803, lon: -68.26493, marker: circle, color: *bas_color }
+  front1: { type: fixed, lat: -67.518560, lon: -68.267065, marker: circle, color: *bas_color }
+  front_float: { type: fixed, lat: -67.521108, lon: -68.273986, marker: circle, color: *bas_color }
+  front2: { type: fixed, lat: -67.523901, lon: -68.281430, marker: circle, color: *bas_color }
+  deploy_rats_1: { type: fixed, lat: -67.57017, lon: -68.22517, marker: triangle, color: "#34ebde" }
+  
+  sentinal-2-28thDec2025: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/sentinal2_ryderbay.png", extents: [-67.62, -68.45, -67.50, -68.03] }
+  ryder_bay_bas_field_map_boating_limts: { type: image, url: "https://lewisdrysdale.github.io/leaflet-assets/images/ryder_bay_bas_field_map_boating_limts.png", extents: [-67.67, -68.45, -67.48, -67.93] }
+ 
+  
+  
+  POLOMINTS_BAS_MOORINGS: {
+    type: group,
+    assets: [ RATS mooring, Middle0_ADCP, Middle1_float, front1, front_float, front2 ]
+  }
+  POLOMINTS_SAMS_MOORINGS: {
+    type: group,
+    assets: [ M3, M2, M1 ]
+  }
+  SAT_IMAGES: {
+    type: group,
+    assets: [ sentinal-2-28thDec2025 ]
+  }
+  SG_GROUP: {
+    type: group,
+    assets: [ deploy_rats_1 ]
+  }
+  BATHY: {
+    type: group,
+    assets: [ ryder_bathy_100mcon ]
+  }
+
+pilotdefaults: { pilotgroups: [ samspilots ] }
+pilotgroups: [samspilots]
+
+missions:
+  - { glider : 647, mission: polomints_testing, path: sg647/polomints_testing, also: [ {asset: POLOMINTS_SAMS_MOORINGS}, {asset: POLOMINTS_BAS_MOORINGS}, {asset: SAT_IMAGES}, {asset: BATHY} ] }
+  # - { glider : 156, mission: selftest_Nov2025, path: sg156/selftests_nov2025, status: complete }
+   # - { glider : 156, mission: selftest_Dec2025, path: sg156/selftests_dec2025, status: ongoing }
+   #   glider : 647
+   # mission: polomints_testing
+   # path: sg647/polomints_testing
+   # also: [ {asset: POLOMINTS_SAMS_MOORINGS}, {asset: SG_GROUP}, {asset: POLOMINTS_BAS_MOORINGS}, {asset: SAT_IMAGES}, {asset: BATHY} ]
